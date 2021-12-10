@@ -139,6 +139,16 @@ subprojects {
     }
 }
 
+nexusPublishing {
+    packageGroup = "com.github.michaelruocco"
+    repositories {
+        sonatype {
+            username = System.getenv("OSSRH_USERNAME")
+            password = System.getenv("OSSRH_PASSWORD")
+        }
+    }
+}
+
 task codeCoverageReport(type: JacocoReport) {
     executionData fileTree(project.rootDir.absolutePath).include("**/build/jacoco/*.exec")
 
