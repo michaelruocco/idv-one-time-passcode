@@ -12,11 +12,9 @@ spring:
           issuer: https://michaelruocco.eu.auth0.com/
           subjects: test-client-id
 
-info:
-  app:
-    name: ${spring.application.name}
-
 management:
+  endpoints:
+    web.exposure.include: health,info
   endpoint:
     health:
       show-details: always

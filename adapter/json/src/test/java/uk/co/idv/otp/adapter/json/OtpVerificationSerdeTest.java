@@ -1,11 +1,10 @@
 package uk.co.idv.otp.adapter.json;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ArgumentsSource;
+import uk.co.idv.common.adapter.json.ObjectMapperFactory;
 import uk.co.idv.otp.entities.OtpVerification;
 
 import static net.javacrumbs.jsonunit.assertj.JsonAssertions.assertThatJson;
@@ -13,10 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class OtpVerificationSerdeTest {
 
-    private static final ObjectMapper MAPPER = new ObjectMapper()
-            .setSerializationInclusion(JsonInclude.Include.NON_ABSENT)
-            .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
-            .registerModule(new OtpAppModule());
+    private static final ObjectMapper MAPPER = ObjectMapperFactory.build(new OtpAppModule());
 
     @ParameterizedTest(name = "should serialize otp verification {1}")
     @ArgumentsSource(OtpVerificationArgumentsProvider.class)

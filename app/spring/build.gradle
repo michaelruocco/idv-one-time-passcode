@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = "2.4.5"
+        springBootVersion = "2.6.1"
     }
 }
 
@@ -8,14 +8,14 @@ plugins {
     id "org.unbroken-dome.test-sets" version "${testSetsPluginVersion}"
     id "org.springframework.boot" version "${springBootVersion}"
     id "io.spring.dependency-management" version "1.0.11.RELEASE"
-    id "com.bmuschko.docker-remote-api" version "6.7.0"
-    id "com.avast.gradle.docker-compose" version "0.14.3"
+    id "com.bmuschko.docker-remote-api" version "7.1.0"
+    id "com.avast.gradle.docker-compose" version "0.14.11"
     id "com.moowork.node" version "1.3.1"
     id "com.github.michaelruocco.gradle-postman-runner" version "0.1.3"
 }
 
 ext {
-    karateVersion = "1.0.1"
+    karateVersion = "1.1.0"
     logbackJsonVersion = "0.1.5"
     authServerVersion = "0.1.8"
 }
@@ -46,7 +46,7 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-web"
     implementation "org.springframework.boot:spring-boot-starter-actuator"
     implementation "org.springframework.boot:spring-boot-starter-oauth2-resource-server"
-    implementation "org.springframework.hateoas:spring-hateoas:1.3.0"
+    implementation "org.springframework.boot:spring-boot-starter-hateoas"
     implementation "com.github.michaelruocco:spring-filters:0.1.12"
     implementation "com.github.michaelruocco:json-adapter:${jsonAdapterVersion}"
     implementation "com.github.michaelruocco:testing-clocks:${testingClocksVersion}"
@@ -58,7 +58,7 @@ dependencies {
     }
     runtimeOnly "ch.qos.logback.contrib:logback-json-classic:${logbackJsonVersion}"
     runtimeOnly "ch.qos.logback.contrib:logback-jackson:${logbackJsonVersion}"
-    runtimeOnly "net.logstash.logback:logstash-logback-encoder:6.6"
+    runtimeOnly "net.logstash.logback:logstash-logback-encoder:7.0.1"
     runtimeOnly "org.awaitility:awaitility"
 
     testImplementation testFixtures(project(":entities"))
@@ -67,7 +67,7 @@ dependencies {
     integrationTestImplementation "com.intuit.karate:karate-core:${karateVersion}"
     integrationTestImplementation "com.intuit.karate:karate-junit5:${karateVersion}"
     integrationTestImplementation "org.awaitility:awaitility"
-    integrationTestImplementation "org.testcontainers:junit-jupiter:1.15.3"
+    integrationTestImplementation "org.testcontainers:junit-jupiter:1.16.2"
     integrationTestImplementation "com.github.michaelruocco:fake-jwt-auth-server:${authServerVersion}"
     integrationTestImplementation "com.github.michaelruocco:fake-jwt-auth-server:${authServerVersion}:test-fixtures"
     integrationTestImplementation "com.github.michaelruocco:rest-client:0.1.8"

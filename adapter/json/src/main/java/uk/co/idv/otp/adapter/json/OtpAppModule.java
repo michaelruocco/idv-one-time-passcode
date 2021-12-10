@@ -31,7 +31,7 @@ import java.util.Arrays;
 public class OtpAppModule extends SimpleModule {
 
     public OtpAppModule() {
-        super("otp-module", Version.unknownVersion());
+        super("otp-app-module", Version.unknownVersion());
 
         setUpVerification();
         setUpDeliveries();

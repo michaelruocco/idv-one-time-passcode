@@ -3,7 +3,7 @@ plugins {
 }
 
 ext {
-    jacksonVersion = "2.12.3"
+    jacksonVersion = "2.13.0"
 }
 
 dependencies {
@@ -13,7 +13,7 @@ dependencies {
     implementation "com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}"
     implementation "com.fasterxml.jackson.core:jackson-core:${jacksonVersion}"
     implementation "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
-    implementation "com.jayway.jsonpath:json-path:2.5.0"
+    implementation "com.jayway.jsonpath:json-path:2.6.0"
     implementation "com.github.michaelruocco:json-masker:1.0.7"
     implementation "com.github.michaelruocco:json-adapter:${jsonAdapterVersion}"
     implementation "com.github.michaelruocco.idv:otp-json:${contextVersion}"
@@ -24,5 +24,5 @@ dependencies {
     testImplementation "net.javacrumbs.json-unit:json-unit-assertj:${jsonUnitAssertjVersion}"
 
     testFixturesImplementation testFixtures(project(":entities"))
-    testFixturesImplementation "com.github.michaelruocco:file-loader:6.0.1"
+    testFixturesImplementation "com.github.michaelruocco:file-loader:6.0.2"
 }

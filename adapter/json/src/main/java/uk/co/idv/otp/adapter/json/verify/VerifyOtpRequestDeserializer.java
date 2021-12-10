@@ -20,6 +20,7 @@ public class VerifyOtpRequestDeserializer extends StdDeserializer<VerifyOtpReque
 
     public VerifyOtpRequestDeserializer() {
         super(VerifyOtpRequest.class);
+        System.out.println("in constructor VerifyOtpRequest");
     }
 
     @Override

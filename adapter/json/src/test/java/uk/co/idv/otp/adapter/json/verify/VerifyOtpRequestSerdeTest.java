@@ -2,8 +2,8 @@ package uk.co.idv.otp.adapter.json.verify;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
 import org.junit.jupiter.api.Test;
+import uk.co.idv.common.adapter.json.ObjectMapperFactory;
 import uk.co.idv.otp.adapter.json.OtpAppModule;
 import uk.co.idv.otp.entities.verify.VerifyOtpRequest;
 import uk.co.idv.otp.entities.verify.VerifyOtpRequestMother;
@@ -11,11 +11,9 @@ import uk.co.idv.otp.entities.verify.VerifyOtpRequestMother;
 import static net.javacrumbs.jsonunit.assertj.JsonAssertions.assertThatJson;
 import static org.assertj.core.api.Assertions.assertThat;
 
-class VerifyOtpRequestTest {
+class VerifyOtpRequestSerdeTest {
 
-    private static final ObjectMapper MAPPER = new ObjectMapper()
-            .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
-            .registerModule(new OtpAppModule());
+    private static final ObjectMapper MAPPER = ObjectMapperFactory.build(new OtpAppModule());
     private static final VerifyOtpRequest REQUEST = VerifyOtpRequestMother.build();
     private static final String JSON = VerifyOtpRequestJsonMother.build();
 

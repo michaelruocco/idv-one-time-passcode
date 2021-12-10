@@ -28,10 +28,10 @@
   },
   "config": {
     "maxNumberOfAttempts": 3,
-    "duration": 300.0,
+    "duration": 300000,
     "passcodeConfig": {
       "length": 8,
-      "duration": 120.0,
+      "duration": 120000,
       "maxNumberOfDeliveries": 2
     }
   },
