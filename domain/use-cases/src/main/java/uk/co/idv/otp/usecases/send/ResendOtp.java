@@ -23,7 +23,7 @@ public class ResendOtp {
 
     public OtpVerification resend(ResendOtpRequest request) {
         var id = request.getId();
-        var originalVerification = getOtp.get(id);
+        var originalVerification = getOtp.getIfIncomplete(id);
         var resentDelivery = redeliver(originalVerification);
         var updatedVerification = originalVerification.add(resentDelivery);
         repository.save(updatedVerification);
